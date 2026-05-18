@@ -29,10 +29,19 @@ functions, non-Gaussian statistics, critical collapse, or numerical relativity.
 
 ```bash
 python toy_abundance.py --make-plots
+python benchmark_abundance.py
 pytest
 ```
 
 Generated files are written to `results/`.
+
+Benchmark outputs:
+
+- `results/abundance_benchmark.csv`
+- `results/abundance_benchmark_compare.png`
+
+The benchmark is an analytic consistency comparison. It is not a GRChombo or
+Einstein Toolkit validation run.
 
 ## What To Look For
 
@@ -41,3 +50,8 @@ Generated files are written to `results/`.
 - Outputs are useful for code demonstration and method discussion, not for
   publication-level exclusion claims.
 
+## Numerical-Relativity Benchmarks
+
+This repo does not run GRChombo or Einstein Toolkit. Those frameworks require a
+separate HPC-style setup and problem-specific initial data. The `benchmarks/`
+folder documents the CSV format expected for future external comparison data.

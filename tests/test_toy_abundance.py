@@ -1,5 +1,6 @@
 import numpy as np
 
+from benchmark_abundance import run_benchmark
 from toy_abundance import abundance_curve, collapse_fraction
 
 
@@ -20,3 +21,8 @@ def test_larger_amplitude_gives_larger_peak_abundance():
     high = abundance_curve(amplitude=0.015, width=0.5, n_points=40)
     assert high["f_pbh"].max() > low["f_pbh"].max()
 
+
+def test_benchmark_ratios_are_finite():
+    benchmark = run_benchmark()
+    assert np.all(np.isfinite(benchmark["toy_to_reference_ratio"]))
+    assert benchmark["toy_f_pbh"].max() > 0
